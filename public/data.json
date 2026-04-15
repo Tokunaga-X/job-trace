@@ -1,0 +1,114 @@
+{
+  "jobs": [
+    {
+      "id": "2022-001",
+      "year": 2022,
+      "title": "前端开发",
+      "company": "普华永道",
+      "status": "已放弃",
+      "info": "要能英文面试",
+      "createdAt": "2022",
+      "updatedAt": "2022"
+    },
+    {
+      "id": "2022-002",
+      "year": 2022,
+      "title": "前端开发",
+      "company": "微策略",
+      "status": "已放弃",
+      "info": "刷算法 准备笔试",
+      "createdAt": "2022",
+      "updatedAt": "2022"
+    },
+    {
+      "id": "2022-003",
+      "year": 2022,
+      "title": "前端开发",
+      "company": "帆软",
+      "status": "已放弃",
+      "info": "hr面试过，等待一面",
+      "createdAt": "2022",
+      "updatedAt": "2022"
+    },
+    {
+      "id": "2022-004",
+      "year": 2022,
+      "title": "前端开发",
+      "company": "南讯股份",
+      "status": "已放弃",
+      "info": "一面过 准备二面去现场",
+      "createdAt": "2022",
+      "updatedAt": "2022"
+    },
+    {
+      "id": "2022-005",
+      "year": 2022,
+      "title": "前端开发",
+      "company": "招商银行外包",
+      "status": "已拒绝",
+      "info": "要vue经验的",
+      "createdAt": "2022",
+      "updatedAt": "2022"
+    },
+    {
+      "id": "2022-006",
+      "year": 2022,
+      "title": "前端开发",
+      "company": "海康",
+      "status": "已拒绝",
+      "info": "一面没过 简单问题没答出来",
+      "createdAt": "2022",
+      "updatedAt": "2022"
+    },
+    {
+      "id": "2022-007",
+      "year": 2022,
+      "title": "前端开发",
+      "company": "跨越星空",
+      "status": "已拒绝",
+      "info": "问的都是实操性比较强 动画 typescript 都没答出来",
+      "createdAt": "2022",
+      "updatedAt": "2022"
+    },
+    {
+      "id": "2022-008",
+      "year": 2022,
+      "title": "前端开发",
+      "company": "阿里外包",
+      "status": "Offer",
+      "info": "14K * 13",
+      "createdAt": "2022",
+      "updatedAt": "2022"
+    },
+    {
+      "id": "2022-009",
+      "year": 2022,
+      "title": "前端开发",
+      "company": "大神网络",
+      "status": "Offer",
+      "info": "12K * 13",
+      "createdAt": "2022",
+      "updatedAt": "2022"
+    },
+    {
+      "id": "2022-010",
+      "year": 2022,
+      "title": "前端开发",
+      "company": "探迹科技",
+      "status": "Offer",
+      "info": "17K * 13 大小周",
+      "createdAt": "2022",
+      "updatedAt": "2022"
+    },
+    {
+      "id": "2022-011",
+      "year": 2022,
+      "title": "前端开发",
+      "company": "凯捷咨询",
+      "status": "Offer",
+      "info": "13K * 13",
+      "createdAt": "2022",
+      "updatedAt": "2022"
+    }
+  ]
+}
