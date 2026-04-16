@@ -6,7 +6,7 @@
  * How to generate the hash:
  *   node -e "console.log(require('crypto').createHash('sha256').update('YOUR_SECRET').digest('hex'))"
  */
-export const SHARED_SECRET_HASH = 'placeholder' // ← replace with your actual hash
+export const SHARED_SECRET_HASH = 'b811f03f712c066b1a03a1fbe3877fa2b68f9b1692c2bdfb45c96b731f677496'
 
 export async function verifySecretAsync(secret: string): Promise<boolean> {
   const encoder = new TextEncoder()
