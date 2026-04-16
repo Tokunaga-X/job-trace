@@ -60,18 +60,6 @@ function App() {
 
   return (
     <div className="app">
-      {isUnlocked && (
-        <div className="unlock-bar">
-          <span>🔓 已解锁编辑权限</span>
-          <button className="btn-secondary" style={{ height: 28, padding: '0 12px', fontSize: 12 }} onClick={() => {
-            if (!import.meta.env.DEV) sessionStorage.removeItem(AUTH_KEY)
-            setIsUnlocked(!!import.meta.env.DEV)
-          }}>
-            锁定
-          </button>
-        </div>
-      )}
-
       <header className="app-header">
         <div className="header-title">
           <div className="tab-bar">
@@ -90,7 +78,7 @@ function App() {
           </div>
         </div>
         <div className="header-actions">
-          {activeTab === 'jobs' && (
+          {isUnlocked && activeTab === 'jobs' && (
             <select
               className="year-select"
               value={selectedYear}
@@ -101,31 +89,23 @@ function App() {
               ))}
             </select>
           )}
-          {activeTab === 'housing' && (
+          {isUnlocked && activeTab === 'housing' && (
             <button className="btn-secondary" onClick={exportHouses}>导出</button>
           )}
-          {activeTab === 'jobs' && (
+          {isUnlocked && activeTab === 'jobs' && (
             <>
               <button className="btn-secondary" onClick={exportJobs}>导出</button>
-              {isUnlocked ? (
-                <button className="btn-primary" onClick={() => setShowJobModal(true)}>+ 添加</button>
-              ) : (
-                <button className="btn-primary" onClick={() => setIsUnlocked(false)}>🔒 解锁</button>
-              )}
+              <button className="btn-primary" onClick={() => setShowJobModal(true)}>+ 添加</button>
             </>
           )}
-          {activeTab === 'housing' && (
-            isUnlocked ? (
-              <button className="btn-primary" onClick={() => setShowHouseModal(true)}>+ 添加</button>
-            ) : (
-              <button className="btn-primary" onClick={() => setIsUnlocked(false)}>🔒 解锁</button>
-            )
+          {isUnlocked && activeTab === 'housing' && (
+            <button className="btn-primary" onClick={() => setShowHouseModal(true)}>+ 添加</button>
           )}
         </div>
       </header>
 
       {/* Job Trace */}
-      {activeTab === 'jobs' && (
+      {activeTab === 'jobs' && isUnlocked && (
         filteredJobs.length === 0 ? (
           <p className="empty">暂无 {selectedYear} 年职位记录</p>
         ) : (
@@ -134,8 +114,8 @@ function App() {
               <JobCard
                 key={job.id}
                 job={job}
-                onEdit={isUnlocked ? (j) => { setEditingJob(j); setShowJobModal(true) } : (j) => { setEditingJob(j); setShowJobModal(true) }}
-                onDelete={isUnlocked ? deleteJob : () => {}}
+                onEdit={(j) => { setEditingJob(j); setShowJobModal(true) }}
+                onDelete={deleteJob}
               />
             ))}
           </div>
@@ -143,7 +123,7 @@ function App() {
       )}
 
       {/* Housing Trace */}
-      {activeTab === 'housing' && (
+      {activeTab === 'housing' && isUnlocked && (
         houses.length === 0 ? (
           <p className="empty">暂无房源记录</p>
         ) : (
@@ -152,8 +132,8 @@ function App() {
               <HouseCard
                 key={house.id}
                 house={house}
-                onEdit={isUnlocked ? (h) => { setEditingHouse(h); setShowHouseModal(true) } : (h) => { setEditingHouse(h); setShowHouseModal(true) }}
-                onDelete={isUnlocked ? deleteHouse : () => {}}
+                  onEdit={(h) => { setEditingHouse(h); setShowHouseModal(true) }}
+                onDelete={deleteHouse}
               />
             ))}
           </div>

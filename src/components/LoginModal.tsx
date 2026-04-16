@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { verifySecretAsync } from '../utils/auth'
+import { verifySecret } from '../utils/auth'
 
 interface LoginModalProps {
   onSuccess: () => void
@@ -8,21 +8,16 @@ interface LoginModalProps {
 export function LoginModal({ onSuccess }: LoginModalProps) {
   const [secret, setSecret] = useState('')
   const [error, setError] = useState('')
-  const [loading, setLoading] = useState(false)
 
-  async function handleSubmit(e: React.FormEvent) {
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     if (!secret.trim()) return
-    setLoading(true)
-    setError('')
-    const ok = await verifySecretAsync(secret.trim())
-    if (ok) {
+    if (verifySecret(secret)) {
       sessionStorage.setItem('job-trace-auth', '1')
       onSuccess()
     } else {
       setError('密钥错误')
     }
-    setLoading(false)
   }
 
   return (
@@ -40,8 +35,8 @@ export function LoginModal({ onSuccess }: LoginModalProps) {
             autoFocus
           />
           {error && <p className="login-error">{error}</p>}
-          <button type="submit" className="btn-primary" style={{ width: '100%' }} disabled={loading}>
-            {loading ? '验证中...' : '解锁'}
+          <button type="submit" className="btn-primary" style={{ width: '100%' }}>
+            解锁
           </button>
         </form>
       </div>
